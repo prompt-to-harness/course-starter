@@ -18,6 +18,9 @@
 | Codex CLI | `codex --version` 有输出，在正确练习目录启动并核对当前配置 | 待检查 |
 | MiniMax M3 | 按下表实际验证认证、请求、模型身份与工具调用 | 待检查 |
 | Node.js / npm | 记录 `node --version`、`npm --version`；正式应用前按冻结工具链核对 | 待检查，1.1 不依赖 |
+| GitHub CLI（gh） | `gh --version` 有输出；由本人在终端运行 `gh auth login --scopes workflow` 完成登录，`gh auth status` 显示已登录且权限包含 `workflow` | 待检查，1.1 不依赖，2.4 前补齐 |
+
+GitHub CLI 用在 2.4：让 Codex 设置 Pages 来源时由它调用 GitHub 的接口，每条命令由你批准。登录必须由本人完成，不要把令牌贴进对话、Prompt 或环境变量，让 gh 自己保存登录。`gh auth login` 会问是否让 Git 也用这个登录；用它推送 `.github/workflows/` 里的文件需要 `workflow` 权限，gh 默认登录不含这一项，所以加上 `--scopes workflow`。暂时装不上 gh 的，2.4 改在 GitHub 网页上设置，不影响后续课程。
 
 ## 模型实际接入验证
 
